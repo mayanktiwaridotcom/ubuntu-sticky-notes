@@ -9,8 +9,11 @@ A simple, lightweight sticky notes application for the Ubuntu desktop, designed 
 *   **Always on Top**: Notes stay visible over any other application.
 *   **Multiple Notes**: Create up to six notes simultaneously.
 *   **Rich Text Formatting**: Basic text styling with **Bold**, *Italic*, and Underline.
+*   **Line Numbers**: Each note displays line numbers for easy reference.
+*   **Image Pasting**: Paste images directly from your clipboard into notes.
 *   **Persistence**: Notes are automatically saved and restored when you restart the application.
 *   **System Tray Integration**: Easily accessible from a system tray icon for creating new notes or quitting the app.
+*   **Non-Destructive Closing**: Closing a note with the 'X' button hides it instead of deleting it. Hidden notes can be restored.
 
 ## Prerequisites
 
@@ -18,7 +21,7 @@ Before you begin, ensure you have the following dependencies installed on your U
 
 ```bash
 sudo apt update
-sudo apt install python3-gi gir1.2-gtk-3.0 gir1.2-ayatanaappindicator3-0.1
+sudo apt install python3-gi gir1.2-gtk-3.0 gir1.2-ayatanaappindicator3-0.1 gir1.2-gtksource-3.0
 ```
 
 ## Installation
@@ -57,7 +60,7 @@ Version: 1.0
 Architecture: all
 Maintainer: Your Name <you@example.com>
 Description: A simple sticky notes application for Ubuntu.
- Depends: python3-gi, gir1.2-gtk-3.0, gir1.2-ayatanaappindicator3-0.1
+ Depends: python3-gi, gir1.2-gtk-3.0, gir1.2-ayatanaappindicator3-0.1, gir1.2-gtksource-3.0
 EOF
 
 # Create the .desktop file for the application menu
@@ -99,9 +102,15 @@ sudo apt-get install -f
 
 After installation, you can find **"Sticky Notes"** in your system's application launcher.
 
-Alternatively, the application will place an icon in your system tray. Right-click this icon to:
+The application will place an icon in your system tray. Right-click this icon to:
 *   **New Note**: Create a new sticky note.
+*   **Show All Notes**: Restore any notes that have been hidden.
 *   **Quit**: Close all notes and exit the application.
+
+Each note window has a toolbar with the following options:
+*   **Formatting**: Bold, Italic, and Underline text.
+*   **Paste Image**: Paste an image from your clipboard.
+*   **Delete Note**: Permanently delete the current note.
 
 ## For Developers
 
@@ -115,3 +124,4 @@ If you want to run the application directly from the source code without install
     chmod +x main.py
     ./main.py
     ```
+
